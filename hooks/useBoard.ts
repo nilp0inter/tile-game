@@ -170,7 +170,7 @@ export type BoardPoints = { board: Board; points: number }
 /**
  * The main thing. Returns a list of boards to be animated through
  */
-function swapTile(from: Position, to: Position, board: Board): BoardPoints[] {
+export function swapTile(from: Position, to: Position, board: Board): BoardPoints[] {
   const swappedBoard = copyBoard(board)
   swappedBoard[to.x][to.y] = board[from.x][from.y]
   swappedBoard[from.x][from.y] = board[to.x][to.y]
@@ -345,7 +345,7 @@ function isGameOver(board: Board): boolean {
 /**
  * Returns two tiles that can be swapped to make a match
  */
-function getPositionsThatAlmostMatch(
+export function getPositionsThatAlmostMatch(
   board: Board,
 ): [Position, Position] | undefined {
   for (let x = 0; x < board.length; x++) {
